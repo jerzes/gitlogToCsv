@@ -47,6 +47,11 @@ class GitlogToCsv():
     def getCsv(self):
         return self.csv
 
+    def saveCsv(self, filename):
+        f = open(filename, "w+")
+        f.write(self.getCsv())
+        f.close()
+
     def convert(self):
         try:
             f = open(self.filename)
@@ -69,3 +74,4 @@ class GitlogToCsv():
 git = GitlogToCsv("log.txt")
 git.convert()
 print(git.getCsv())
+git.saveCsv("pajac.csv")
